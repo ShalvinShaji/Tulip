@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import ServiceCard from "./ServiceCard";
 import servicesData from "@/lib/servicesData";
 import useEmblaCarousel from "embla-carousel-react";
-import { ArrowLeft, ArrowRight } from "lucide-react"; // Importing Lucide icons
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const Services = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
@@ -17,11 +17,11 @@ const Services = () => {
   }, [emblaApi]);
 
   return (
-    <div className="container mx-auto py-12 px-8">
+    <div className="container mx-auto py-12 px-4 md:px-8">
       <h2 className="text-3xl font-bold text-center mb-2">Our Services</h2>
-      <h3 className="text-xl  text-center mb-6">
+      <h3 className="text-xl text-center mb-6">
         Explore the best travel packages tailored for you
-      </h3>{" "}
+      </h3>
       <div className="embla" ref={emblaRef}>
         <div className="embla__container">
           {servicesData.map((service, index) => (
