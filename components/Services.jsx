@@ -1,24 +1,56 @@
+"use client";
+import { useEffect } from "react";
+import ServiceCard from "./ServiceCard";
+import servicesData from "@/lib/servicesData";
+import useEmblaCarousel from "embla-carousel-react";
+import { ArrowLeft, ArrowRight } from "lucide-react"; // Importing Lucide icons
+
 const Services = () => {
-    return (
-        <div className="container mx-auto py-12">
-            <h2 className="text-3xl font-bold text-center mb-8">Our Services</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {/* Example Service Card */}
-                <div className="bg-white shadow-lg rounded-lg p-6">
-                    <h3 className="text-xl font-semibold">Service 1</h3>
-                    <p className="mt-2">Description of Service 1.</p>
-                </div>
-                <div className="bg-white shadow-lg rounded-lg p-6">
-                    <h3 className="text-xl font-semibold">Service 2</h3>
-                    <p className="mt-2">Description of Service 2.</p>
-                </div>
-                <div className="bg-white shadow-lg rounded-lg p-6">
-                    <h3 className="text-xl font-semibold">Service 3</h3>
-                    <p className="mt-2">Description of Service 3.</p>
-                </div>
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (emblaApi) emblaApi.scrollNext();
+    }, 5000); // Change slide every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [emblaApi]);
+
+  return (
+    <div className="container mx-auto py-12 px-8">
+      <h2 className="text-3xl font-bold text-center mb-2">Our Services</h2>
+      <h3 className="text-xl  text-center mb-6">
+        Explore the best travel packages tailored for you
+      </h3>{" "}
+      <div className="embla" ref={emblaRef}>
+        <div className="embla__container">
+          {servicesData.map((service, index) => (
+            <div className="embla__slide" key={index}>
+              <ServiceCard
+                title={service.title}
+                description={service.description}
+                image={service.image}
+              />
             </div>
+          ))}
         </div>
-    );
+      </div>
+      <div className="flex justify-center mt-4">
+        <button
+          className="bg-mahogany text-white border-2 border-white rounded-full p-2 mr-2 flex items-center justify-center"
+          onClick={() => emblaApi.scrollPrev()}
+        >
+          <ArrowLeft className="h-4 w-4" />
+        </button>
+        <button
+          className="bg-mahogany text-white border-2 border-white rounded-full p-2 flex items-center justify-center"
+          onClick={() => emblaApi.scrollNext()}
+        >
+          <ArrowRight className="h-4 w-4" />
+        </button>
+      </div>
+    </div>
+  );
 };
 
 export default Services;
