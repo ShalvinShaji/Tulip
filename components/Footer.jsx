@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="bg-black text-white py-8 px-6">
       <div className="container mx-auto px-4">
-        <div className="mb-4 md:mb-0">
+        <div className="mb-4 md:mb-0 text-start">
           <h3 className="text-2xl font-bold">Tulip - Tours & Travels</h3>
           <p className="mt-2">
             Explore the world with our exclusive travel packages tailored just

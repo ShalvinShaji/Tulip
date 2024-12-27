@@ -10,8 +10,8 @@ const Home = () => {
       <Navbar />
       <HeroSection />
       <Services />
-      {/* <Testimonials />
-            <Footer /> */}
+      {/* <Testimonials /> */}
+      <Footer />
     </>
   );
 };
