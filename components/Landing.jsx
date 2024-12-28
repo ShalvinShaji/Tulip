@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Landing = () => {
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-center text-center min-h-screen section-padding">
+    <div className=" flex flex-col lg:flex-row items-center justify-center text-center min-h-screen section-padding relative top-[64px] md:top-0">
       {/* Text Section */}
       <div className="flex-1 space-y-6 flex flex-col items-center justify-center">
         <h1 className="text-4xl lg:text-5xl font-Sacramento">
