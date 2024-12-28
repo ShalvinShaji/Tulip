@@ -69,8 +69,8 @@ const Navbar = () => {
         </div>
       </div>
       {isNavbarOpen && (
-        <div className="md:hidden">
-          <ul className="flex flex-col text-sm space-y-2 p-4 bg-black bg-opacity-50">
+        <div className="md:hidden transition duration-500">
+          <ul className="flex flex-col text-sm space-y-2 p-4 bg-white text-black font-semibold">
             <li>
               <a
                 className="hover:text-mahogany transition duration-300"
