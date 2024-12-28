@@ -1,38 +1,56 @@
 "use client";
 import useStore from "@/store/useStore";
+import { useState, useEffect } from "react";
 
 const Navbar = () => {
   const { isNavbarOpen, toggleNavbar } = useStore();
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Handle scroll event to change background color
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 30) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listener
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <nav className="bg-transparent shadow-none fixed w-full z-10">
+    <nav
+      className={`${
+        isScrolled ? "bg-white" : "bg-transparent"
+      } shadow-none fixed w-full z-10 text-black transition-all duration-300`}
+    >
       <div className="container mx-auto flex justify-between items-center p-4">
         <h1 className="text-2xl font-bold text-mahogany">Tulip</h1>
-        <div className="hidden md:flex space-x-6">
-          <a
-            className="text-white hover:text-mahogany transition duration-300"
-            href="/"
-          >
+        <div className="hidden md:flex space-x-6 font-semibold text-sm">
+          <a className="hover:text-mahogany transition duration-300" href="/">
             Home
           </a>
           <a
-            className="text-white hover:text-mahogany transition duration-300"
+            className="hover:text-mahogany transition duration-300"
             href="/services"
           >
             Services
           </a>
           <a
-            className="text-white hover:text-mahogany transition duration-300"
+            className="hover:text-mahogany transition duration-300"
             href="/contact"
           >
             Contact
           </a>
         </div>
         <div className="md:hidden">
-          <button
-            onClick={toggleNavbar}
-            className="text-white focus:outline-none"
-          >
+          <button onClick={toggleNavbar} className="focus:outline-none">
             <svg
               className="w-6 h-6"
               fill="none"
@@ -51,11 +69,11 @@ const Navbar = () => {
         </div>
       </div>
       {isNavbarOpen && (
-        <div className="md:hidden">
-          <ul className="flex flex-col space-y-2 p-4 bg-black bg-opacity-50">
+        <div className="md:hidden transition duration-500">
+          <ul className="flex flex-col text-sm space-y-2 p-4 bg-white text-black font-semibold">
             <li>
               <a
-                className="text-white hover:text-mahogany transition duration-300"
+                className="hover:text-mahogany transition duration-300"
                 href="/"
               >
                 Home
@@ -63,7 +81,7 @@ const Navbar = () => {
             </li>
             <li>
               <a
-                className="text-white hover:text-mahogany transition duration-300"
+                className="hover:text-mahogany transition duration-300"
                 href="/services"
               >
                 Services
@@ -71,7 +89,7 @@ const Navbar = () => {
             </li>
             <li>
               <a
-                className="text-white hover:text-mahogany transition duration-300"
+                className="hover:text-mahogany transition duration-300"
                 href="/contact"
               >
                 Contact
