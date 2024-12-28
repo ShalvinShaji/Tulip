@@ -37,47 +37,14 @@ body {
   color: #0a0a0a !important;
 }
 
-/* Embla Carousel Styles */
-.embla {
-  overflow: hidden;
-}
-
-.embla__container {
-  display: flex;
-}
-
-.embla__slide {
-  position: relative;
-  min-width: 100%; /* Full width for smaller screens */
-  margin-right: 16px; /* Space between slides */
-}
-
-@media (min-width: 992px) {
-  /* xl */
-  .embla__slide {
-    min-width: 32%; /* Three slides visible on extra-large screens */
-  }
-}
-
-/* Heading styles */
-h2 {
-  font-size: 2rem;
-}
-
-h3 {
-  font-size: 1.25rem;
-}
-
-/* Button styles */
-.embla__button {
-  padding: 0.5rem;
-  border-radius: 9999px;
-  background-color: #9b1b30;
-  color: white;
-  border: 2px solid white;
-  cursor: pointer;
-}
-
 .font-Sacramento {
   font-family: "Sacramento" !important;
+}
+
+.section-padding {
+  @apply px-4 py-4 lg:px-16 lg:py-16;
+}
+
+.section-margin {
+  @apply mx-2 my-2 lg:mx-6 lg:my-6;
 }
