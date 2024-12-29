@@ -3,8 +3,9 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import servicesData from "@/lib/servicesData";
+import { servicesData } from "@/lib/servicesData";
 import ServiceCard from "./ServiceCard";
+import SectionHeading from "./SectionHeading";
 
 const ServicesCarousel = () => {
   const settings = {
@@ -34,17 +35,12 @@ const ServicesCarousel = () => {
   };
 
   return (
-    <div className="w-full bg-gray-50 py-20">
+    <div className="w-full bg-gray-50 py-20" id="services">
       <div className="container mx-auto px-4">
-        <h2
-          className="text-4xl font-bold text-center text-gray-900 mb-4"
-          id="services"
-        >
-          Our Services
-        </h2>
-        <p className="text-xl text-gray-600 text-center mb-12 font-semibold">
-          Discover our premium travel experiences
-        </p>
+        <SectionHeading
+          mainHeading={"Our Services"}
+          subHeading={"Discover our premium travel experiences"}
+        />
         <Slider {...settings}>
           {servicesData.map((service, index) => (
             <div key={index} className="px-4">
