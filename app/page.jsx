@@ -8,9 +8,9 @@ const Home = () => {
     // px-4 mx-2 py-4 my-2 lg:px-16 lg:py-16 lg:mx-6 lg:my-6
     <div>
       <Landing />
-      {/* <Services /> */}
+      <Services />
       {/* <Testimonials /> */}
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };

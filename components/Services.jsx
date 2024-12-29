@@ -1,56 +1,61 @@
 "use client";
-import { useEffect } from "react";
-import ServiceCard from "./ServiceCard";
+
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import servicesData from "@/lib/servicesData";
-import useEmblaCarousel from "embla-carousel-react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import ServiceCard from "./ServiceCard";
 
-const Services = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (emblaApi) emblaApi.scrollNext();
-    }, 5000); // Change slide every 5 seconds
-
-    return () => clearInterval(interval);
-  }, [emblaApi]);
+const ServicesCarousel = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    arrows: false,
+    // className: "w-full max-w-4xl mx-auto",
+    responsive: [
+      {
+        breakpoint: 1024, // Large devices
+        settings: {
+          slidesToShow: 2, // Show 2 slides on medium devices
+        },
+      },
+      {
+        breakpoint: 768, // Small devices
+        settings: {
+          slidesToShow: 1, // Show 1 slide on small devices
+        },
+      },
+    ],
+  };
 
   return (
-    <div className="container mx-auto py-12 px-4 md:px-8">
-      <h2 className="text-3xl font-bold text-center mb-2">Our Services</h2>
-      <h3 className="text-xl text-center mb-6">
-        Explore the best travel packages tailored for you
-      </h3>
-      <div className="embla" ref={emblaRef}>
-        <div className="embla__container">
+    <div className="w-full bg-gray-50 py-20">
+      <div className="container mx-auto px-4">
+        <h2 className="text-4xl font-bold text-center text-gray-900 mb-4" id="services">
+          Our Services
+        </h2>
+        <p className="text-xl text-gray-600 text-center mb-12 font-semibold">
+          Discover our premium travel experiences
+        </p>
+        <Slider {...settings}>
           {servicesData.map((service, index) => (
-            <div className="embla__slide" key={index}>
+            <div key={index} className="px-4">
               <ServiceCard
                 title={service.title}
                 description={service.description}
-                image={service.image}
+                imageUrl={service.image}
               />
             </div>
           ))}
-        </div>
-      </div>
-      <div className="flex justify-center mt-4">
-        <button
-          className="bg-mahogany text-white border-2 border-white rounded-full p-2 mr-2 flex items-center justify-center"
-          onClick={() => emblaApi.scrollPrev()}
-        >
-          <ArrowLeft className="h-4 w-4" />
-        </button>
-        <button
-          className="bg-mahogany text-white border-2 border-white rounded-full p-2 flex items-center justify-center"
-          onClick={() => emblaApi.scrollNext()}
-        >
-          <ArrowRight className="h-4 w-4" />
-        </button>
+        </Slider>
       </div>
     </div>
   );
 };
 
-export default Services;
+export default ServicesCarousel;
