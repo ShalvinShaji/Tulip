@@ -16,7 +16,7 @@ const ServicesCarousel = () => {
     autoplay: true,
     autoplaySpeed: 4000,
     arrows: false,
-    // className: "w-full max-w-4xl mx-auto",
+    className: "w-full max-w-6xl mx-auto",
     responsive: [
       {
         breakpoint: 1024, // Large devices
@@ -36,7 +36,10 @@ const ServicesCarousel = () => {
   return (
     <div className="w-full bg-gray-50 py-20">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center text-gray-900 mb-4" id="services">
+        <h2
+          className="text-4xl font-bold text-center text-gray-900 mb-4"
+          id="services"
+        >
           Our Services
         </h2>
         <p className="text-xl text-gray-600 text-center mb-12 font-semibold">
