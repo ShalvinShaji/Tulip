@@ -16,7 +16,7 @@ const ServicesCarousel = () => {
     autoplay: true,
     autoplaySpeed: 4000,
     arrows: false,
-    className: "w-full max-w-4xl mx-auto",
+    // className: "w-full max-w-4xl mx-auto",
     responsive: [
       {
         breakpoint: 1024, // Large devices
