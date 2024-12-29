@@ -1,7 +1,6 @@
 import Landing from "@/components/Landing";
 import Services from "@/components/Services"; // Assuming you create this
 import Testimonials from "@/components/Testimonials";
-import Footer from "@/components/Footer";
 
 const Home = () => {
   return (
@@ -10,7 +9,6 @@ const Home = () => {
       <Landing />
       <Services />
       {/* <Testimonials /> */}
-      <Footer />
     </div>
   );
 };

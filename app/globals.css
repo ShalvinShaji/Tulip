@@ -49,6 +49,10 @@ body {
   @apply mx-2 my-2 lg:mx-6 lg:my-6;
 }
 
+.below-navbar {
+  @apply relative top-[64px] md:top-0;
+}
+
 /* Custom styles for Slick carousel */
 .slick-prev,
 .slick-next {

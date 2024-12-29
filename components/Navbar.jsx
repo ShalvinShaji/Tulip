@@ -50,6 +50,18 @@ const Navbar = () => {
           </Link>
           <Link
             className="hover:text-mahogany transition duration-300"
+            href="/packages"
+          >
+            Packages
+          </Link>
+          <Link
+            className="hover:text-mahogany transition duration-300"
+            href="/"
+          >
+            Gallery
+          </Link>
+          <Link
+            className="hover:text-mahogany transition duration-300"
             href="/"
           >
             Contact
