@@ -1,6 +1,7 @@
 "use client";
 import useStore from "@/store/useStore";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 const Navbar = () => {
   const { isNavbarOpen, toggleNavbar } = useStore();
@@ -31,23 +32,28 @@ const Navbar = () => {
       } shadow-none fixed w-full z-10 text-black transition-all duration-300`}
     >
       <div className="container mx-auto flex justify-between items-center p-4">
-        <h1 className="text-2xl font-bold text-mahogany">Tulip</h1>
+        <Link href="/">
+          <h1 className="text-2xl font-bold text-mahogany">Tulip</h1>
+        </Link>
         <div className="hidden md:flex space-x-6 font-semibold text-sm">
-          <a className="hover:text-mahogany transition duration-300" href="/">
-            Home
-          </a>
-          <a
+          <Link
             className="hover:text-mahogany transition duration-300"
-            href="/services"
+            href="/"
+          >
+            Home
+          </Link>
+          <Link
+            className="hover:text-mahogany transition duration-300"
+            href="#services"
           >
             Services
-          </a>
-          <a
+          </Link>
+          <Link
             className="hover:text-mahogany transition duration-300"
-            href="/contact"
+            href="/"
           >
             Contact
-          </a>
+          </Link>
         </div>
         <div className="md:hidden">
           <button onClick={toggleNavbar} className="focus:outline-none">
@@ -72,28 +78,28 @@ const Navbar = () => {
         <div className="md:hidden transition duration-500">
           <ul className="flex flex-col text-sm space-y-2 p-4 bg-white text-black font-semibold">
             <li>
-              <a
+              <Link
                 className="hover:text-mahogany transition duration-300"
                 href="/"
               >
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 className="hover:text-mahogany transition duration-300"
-                href="/services"
+                href="#services"
               >
                 Services
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 className="hover:text-mahogany transition duration-300"
-                href="/contact"
+                href="/"
               >
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
